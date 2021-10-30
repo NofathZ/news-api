@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
+import { User } from "src/user/user.entity";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne } from "typeorm";
 
 @Entity('article')
 export class Article {
@@ -22,6 +23,9 @@ export class Article {
 
   @Column()
   urlImage: string;
+
+  @ManyToOne(() => User, user => user.articles)
+  user: User
 
   @CreateDateColumn()
   created_at: Date;

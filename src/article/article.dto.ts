@@ -1,6 +1,10 @@
 import { IsNotEmpty, IsUrl } from "class-validator";
 
 export class CreateArticle {
+
+  @IsNotEmpty()
+  user: number
+
   @IsNotEmpty()
   author: string;
 
